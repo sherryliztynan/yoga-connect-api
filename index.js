@@ -1,5 +1,8 @@
 const bodyParser = require('body-parser')
 const express = require('express')
+const { getAllYogaReasons } = require('./controllers/yogareasons')
+// eslint-disable-next-line max-len
+const { getAllYogaTeachers, getTeacherByName, saveNewTeacher, deleteYogaTeacher } = require('./controllers/yogateachers')
 
 const app = express()
 
@@ -11,29 +14,15 @@ app.get('/', (request, response) => {
   response.render('index')
 })
 
-app.get('WhyYoga', (request, response) => {
-  response.render('This route will show an introduction to the different reasons why people practice yoga')
-})
+app.get('/YogaReasons', getAllYogaReasons)
 
-app.get('/YogaPractices', (request, response) => {
-  response.send('This route will show a list of the most popular yoga practices')
-})
+app.get('/YogaTeachers', getAllYogaTeachers)
 
-app.get('/YogaTeachers', (request, response) => {
-  response.render('This route will show list of yoga teachers')
-})
+app.get('/YogaTeachers/:name', getTeacherByName)
 
-app.get('/YogaTeachers/:name', (request, response) => {
-  response.render('This route will show a specifc yoga teacher with relevant information')
-})
+app.delete('/YogaTeachers/:name', deleteYogaTeacher)
 
-app.delete('/YogaTeachers/:name', (request, response) => {
-  response.render('This route will show a specifc yoga teacher with relevant information')
-})
-
-app.post('/YogaTeachers/:name', (request, response) => {
-  response.render('This route will create a new posting with the yoga teachers relevant information')
-})
+app.post('/YogaTeachers/:name', saveNewTeacher)
 
 app.listen(1337, () => {
   console.log('yay server up on 1337') // eslint-disable-line no-console
