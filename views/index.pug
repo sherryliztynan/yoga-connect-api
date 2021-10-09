@@ -1,0 +1,120 @@
+html
+    head
+        link(rel ="stylesheet" href ="/public/css/styles.css" )
+    body 
+            h1 GET '/WhyYoga'
+            hr
+            h2 Why yoga?
+            p This GET route will present an explanation of the different reasons to practice yoga.
+            br
+            p Route: http://localhost:1337/WhyYoga
+            br
+            p Example Output: 
+                
+                div 
+                pre
+                    
+            
+            br
+            h1 GET '/Practices'
+            hr
+            h2 Most Popular Practices
+            p This GET route will present a list of all the practices
+            br
+            p Route: http://localhost:1337/Practices
+            br
+            p Example Output: 
+                
+                div 
+                pre
+                    |[{
+                    |       id: 1
+                    |       Name: Hatha 
+                    |       Main Aspects: Asana, Pranayama
+                    |       Advantages: Some of the benefits of Hatha yoga include...
+                    | }]
+
+                    
+            br
+            h1 GET '/YogaTeachers'
+            hr
+            h2 Yoga Teachers
+            p This GET route will present a list of available yoga teachers
+            br
+            p Route: http://localhost:1337/YogaTeachers/
+            br
+            p Example Output: 
+                
+                div 
+                pre
+                    |[{
+                    |       id: 1
+                    |       First Name: Martha
+                    |       Last Name: Toro
+                    |       Specialties: Kundalini Yoga
+                    | }]
+            
+            br
+            h1 GET '/YogaTeachersByName'
+            hr
+            h2 Yoga Teacher
+            p This GET route will present a yoga teacher by name
+            br
+            p Route: http://localhost:1337/YogaTeachers/:name
+            br
+            p Example Output: 
+                
+                div 
+                pre
+                    |[{
+                    |       id: 1
+                    |       First Name: Martha
+                    |       Last Name: Toro
+                    |       Specialties: Kundalini Yoga
+                    | }]
+
+
+            br
+            h1 POST '/YogaTeacher'
+            hr
+            h2 Creates a new teacher listing
+            p This allows for the creation of a new teacher listing
+            br
+            p Route: http://localhost:1337/YogaTeacher
+            br
+            p Headers: content-type - application/json 
+            br
+            p Body
+            pre
+                    |[{
+                    |       "First Name": "Marcos"
+                    |       "Last Name": "Charmorro"
+                    |       "Specialties": "Chair Yoga"
+                    | }]
+                    
+            p Example Output: 
+                
+                div 
+                pre
+                    |[{
+                    |       "id": 2
+                    |       "First Name": "Marcos"
+                    |       "Last Name": "Charmorro"
+                    |       "Specialties": "Chair Yoga"
+                    |       "createdAt": "2021-12-24T00:07:15.399Z"
+                    |       "updatedAt": "2021-12-24T00:07:15.399Z"
+                    | }]
+
+            
+            br
+            h1 DELETE '/YogaTeacher/:name'
+            hr
+            h2 Deletes the information of the yoga teacher by name 
+            p This DELETE route will delete data associated with a given id
+            br
+            p Route: http://localhost:1337/YogaTeacher/:name
+            br
+            p Example Output: Successfully deleted the Yoga Teacher with ID: 2
+                
+            
+
